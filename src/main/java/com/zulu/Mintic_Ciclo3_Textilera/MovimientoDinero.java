@@ -7,7 +7,7 @@ public class MovimientoDinero {
 
     public MovimientoDinero(){
     }
-    
+
     public MovimientoDinero (float montoDinero, String conceptoMovimiento, String idUser){
         this.montoDinero = montoDinero;
         this.conceptoMovimiento = conceptoMovimiento;
