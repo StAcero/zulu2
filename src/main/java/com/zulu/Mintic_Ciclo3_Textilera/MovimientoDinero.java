@@ -3,8 +3,11 @@ package com.zulu.Mintic_Ciclo3_Textilera;
 public class MovimientoDinero {
     float montoDinero = 0.0f;       // Montos positivos y negativos de x movimiento.
     String conceptoMovimiento;      // Descripción del movimiento.
-    String idUser;      //Id del perfil del ususario que realizo del movimiento del dinero
+    String idUser;                  // Id del perfil del usuario que realizó el movimiento del dinero.
 
+    public MovimientoDinero(){
+    }
+    
     public MovimientoDinero (float montoDinero, String conceptoMovimiento, String idUser){
         this.montoDinero = montoDinero;
         this.conceptoMovimiento = conceptoMovimiento;
