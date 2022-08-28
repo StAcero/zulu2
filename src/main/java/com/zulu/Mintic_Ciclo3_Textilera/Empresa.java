@@ -13,9 +13,6 @@ public class Empresa {
 
 
 
-
-
-
     public String getnombreEmpresa() {
         return nombreEmpresa;
     }
