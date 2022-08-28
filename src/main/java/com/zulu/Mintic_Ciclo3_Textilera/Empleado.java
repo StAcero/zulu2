@@ -1,9 +1,12 @@
 package com.zulu.Mintic_Ciclo3_Textilera;
 
+import java.util.stream.Stream;
+
 public class Empleado {
     String nombres, apellidos, correo;
     Long idUser;
     private Empresa empresa;
+    private NombresDeRol rol;
 
 
 
@@ -14,6 +17,14 @@ public class Empleado {
         this.correo = correo;
     }
 
+    public NombresDeRol getRol() {
+        return rol;
+    }
+
+    public void setRol(NombresDeRol rol) {
+        this.rol = rol;
+    }
+
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
@@ -21,6 +32,8 @@ public class Empleado {
     public Empresa getEmpresa() {
         return empresa;
     }
+
+
 
     public String getNombres() {
         return nombres;

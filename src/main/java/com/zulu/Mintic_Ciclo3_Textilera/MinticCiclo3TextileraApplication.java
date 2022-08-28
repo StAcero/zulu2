@@ -3,6 +3,8 @@ package com.zulu.Mintic_Ciclo3_Textilera;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 //@SpringBootApplication
 public class MinticCiclo3TextileraApplication {
 
@@ -16,6 +18,10 @@ public class MinticCiclo3TextileraApplication {
 		Empresa empr = new Empresa("Algarra", "Calle 26",6015190299L,9014456787L);
 		//Seteando empresa 0 al empleado 0
 		emp.setEmpresa(empr);
+		//Seteando Rol
+		emp.setRol(NombresDeRol.ADMINISTRADOR);
+
+
 
 		//Creando movimiento de dinero
 		MovimientoDinero mv1 = new MovimientoDinero(2121313L,10.0F, "Venta de prueba");
@@ -30,6 +36,10 @@ public class MinticCiclo3TextileraApplication {
 		Empresa empr1 = new Empresa("WeWork", "Calle 26",6015190299L,9014456787L);;
 		//Seteando empresa 1 al empleado 1
 		emp1.setEmpresa(empr1);
+		//Seteando Rol
+		emp1.setRol(NombresDeRol.OPERATIVO);
+
+
 
 		//Creando movimiento de dinero1
 		MovimientoDinero mv2 = new MovimientoDinero(9898645L, 15.0F, "Venta de prueba1");
@@ -40,6 +50,7 @@ public class MinticCiclo3TextileraApplication {
 		//Imprimiendo Empleados y empresa correspondiente.
 		System.out.println(
 				"** Empleado:"+"\n"+
+						"Rol:"+ emp.getRol() +"\n"+
 						"Nombre:"+ emp.getNombres()+" "+emp.getApellidos()+"\n"+
 						"Correo:"+ emp.getCorreo()+"\n"+
 						"** Empresa" +"\n"+
@@ -53,6 +64,7 @@ public class MinticCiclo3TextileraApplication {
 
 		System.out.println(
 				"** Empleado:"+"\n"+
+						"Rol:"+ emp1.getRol() +"\n"+
 						"Nombre:"+ emp1.getNombres()+" "+emp1.getApellidos()+"\n"+
 						"Correo:"+ emp1.getCorreo()+"\n"+
 						"** Empresa" +"\n"+
@@ -71,6 +83,7 @@ public class MinticCiclo3TextileraApplication {
 						"ID de la transacción:"+ mv1.getTransactionID()+ "\n" +
 						"ID de empleado:"+ mv1.getEmpleado().getIdUser() + "\n" +
 						"Nombre de empleado:"+ mv1.getEmpleado().getNombres()+" "+mv1.getEmpleado().getApellidos() + "\n"+
+						"Rol de empleado:"+ mv1.getEmpleado().getRol() +"\n"+
 						"Concepto Movimiento:"+ mv1.getConceptoMovimiento() + "\n"+
 						"Monto:"+ mv1.getMontoDinero() + "\n"
 		);
@@ -80,9 +93,12 @@ public class MinticCiclo3TextileraApplication {
 						"ID de la transacción:"+ mv2.getTransactionID()+ "\n" +
 						"ID de empleado:"+ mv2.getEmpleado().getIdUser() + "\n" +
 						"Nombre de empleado:"+ mv2.getEmpleado().getNombres()+" "+mv2.getEmpleado().getApellidos() + "\n"+
+						"Rol de empleado:"+ mv2.getEmpleado().getRol() +"\n"+
 						"Concepto Movimiento:"+ mv2.getConceptoMovimiento() + "\n"+
 						"Monto:"+ mv2.getMontoDinero() + "\n"
 		);
+
+
 	}
 
 }
