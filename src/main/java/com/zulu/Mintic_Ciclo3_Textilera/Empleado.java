@@ -2,12 +2,13 @@ package com.zulu.Mintic_Ciclo3_Textilera;
 
 public class Empleado {
     String nombres, apellidos, correo;
+    Long idUser;
     private Empresa empresa;
 
 
 
-    public Empleado(String nombres, String apellidos, String correo) {
-
+    public Empleado(Long idUser, String nombres, String apellidos, String correo) {
+        this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -45,5 +46,11 @@ public class Empleado {
         this.correo = correo;
     }
 
+    public Long getIdUser() {
+        return idUser;
+    }
 
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
 }

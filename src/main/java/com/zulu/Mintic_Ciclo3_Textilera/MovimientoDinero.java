@@ -1,17 +1,30 @@
 package com.zulu.Mintic_Ciclo3_Textilera;
 
 public class MovimientoDinero {
-    float montoDinero = 0.0f;       // Montos positivos y negativos de x movimiento.
+    float montoDinero = 0.0f;      // Montos positivos y negativos de x movimiento.
+
+    Long transactionID; // ID de la transacción.
     String conceptoMovimiento;      // Descripción del movimiento.
-    String idUser;                  // Id del perfil del usuario que realizó el movimiento del dinero.
+
+
+    private Empleado empleado; // Id del perfil del usuario que realizó el movimiento del dinero.
 
     public MovimientoDinero(){
     }
 
-    public MovimientoDinero (float montoDinero, String conceptoMovimiento, String idUser){
+    public MovimientoDinero (Long transactionID, float montoDinero, String conceptoMovimiento){
+        this.transactionID = transactionID;
         this.montoDinero = montoDinero;
         this.conceptoMovimiento = conceptoMovimiento;
-        this.idUser = idUser;
+
+    }
+
+    public Long getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(Long transactionID) {
+        this.transactionID = transactionID;
     }
 
     public float getMontoDinero() {
@@ -30,11 +43,11 @@ public class MovimientoDinero {
         this.conceptoMovimiento = conceptoMovimiento;
     }
 
-    public String getIdUser() {
-        return idUser;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }
