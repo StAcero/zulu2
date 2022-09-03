@@ -5,11 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class MinticCiclo3TextileraApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(MinticCiclo3TextileraApplication.class, args);
+		SpringApplication.run(MinticCiclo3TextileraApplication.class, args);
 
 
 		//Creando empleado 0
