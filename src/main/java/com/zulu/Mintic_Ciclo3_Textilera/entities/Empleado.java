@@ -1,17 +1,37 @@
-package com.zulu.Mintic_Ciclo3_Textilera;
+package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
-import java.util.stream.Stream;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "empleado")
 public class Empleado {
-    String nombres, apellidos, correo;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long idUser;
+
+    @Column(name = "nombres", length = 50)
+    String nombres;
+
+    @Column(name = "apellidos", length = 50)
+    String apellidos;
+
+    @Column(name = "correo", length = 50)
+    String correo;
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empresa_id")
     private Empresa empresa;
+
+    @Enumerated(EnumType.STRING)
     private NombresDeRol rol;
 
+    public Empleado(){}
 
+    public Empleado(String nombres, String apellidos, String correo) {
 
-    public Empleado(Long idUser, String nombres, String apellidos, String correo) {
-        this.idUser = idUser;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
