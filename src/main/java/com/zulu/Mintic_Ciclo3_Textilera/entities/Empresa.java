@@ -1,17 +1,35 @@
-package com.zulu.Mintic_Ciclo3_Textilera;
+package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "empresa")
 public class Empresa {
-    String nombreEmpresa, direccionEmpresa;
-    long telefono, nit;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long idEmpresa;
 
-    public Empresa(String nombreEmpresa, String direccionEmpresa, long telefono, long nit) {
+    @Column(name = "nombre_empresa")
+    String nombreEmpresa;
+    @Column(name = "direccion_empresa")
+    String direccionEmpresa;
+
+    @Column(name = "telefono")
+    Long telefono;
+
+    @Column(name = "nit")
+    Long nit;
+
+    public Empresa(){}
+
+    public Empresa(String nombreEmpresa, String direccionEmpresa, Long telefono, Long nit) {
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefono = telefono;
         this.nit = nit;
     }
-
-
 
     public String getnombreEmpresa() {
         return nombreEmpresa;
@@ -29,19 +47,19 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public long getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(long telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
-    public long getNit() {
+    public Long getNit() {
         return nit;
     }
 
-    public void setNit(long nit) {
+    public void setNit(Long nit) {
         this.nit = nit;
     }
 }

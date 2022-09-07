@@ -1,4 +1,4 @@
-package com.zulu.Mintic_Ciclo3_Textilera;
+package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
 public class MovimientoDinero {
     float montoDinero = 0.0f;      // Montos positivos y negativos de x movimiento.
