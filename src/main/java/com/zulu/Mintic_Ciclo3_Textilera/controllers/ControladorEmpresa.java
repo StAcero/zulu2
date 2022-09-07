@@ -1,31 +1,38 @@
 package com.zulu.Mintic_Ciclo3_Textilera.controllers;
 import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
+import com.zulu.Mintic_Ciclo3_Textilera.services.EmpresaServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ControladorEmpresa {
 
+    @Autowired
+    private EmpresaServicio empresaServicio;
     @GetMapping("/enterprises")
-    public String getEmpresas() {
-        return "GET Todas las Empresas";
+    public List<Empresa> getEmpresas() {
+
+        return empresaServicio.getEmpresas();
     }
     @PostMapping("/enterprises")
-    public String addEmpresa(Empresa empresa) {
-        return "POST Todas las Empresas";
+    public void addEmpresa(@RequestBody Empresa empresa) {
+
+        empresaServicio.addEmpresas(empresa);
     }
-    
    @GetMapping("/enterprises/{id}")
-    public String getEmpresa(@PathVariable("id") Long id) {
-        return "Get Empresa ID";
+    public Empresa getEmpresa(@PathVariable("id") Long id) {
+        return empresaServicio.getEmpresa(id);
     }
     @PatchMapping("/enterprises/{id}")
-    public String updateEmpresa(@PathVariable("id") Long id) {
-        return "Update Empresa ID";
+    public void updateEmpresa(@PathVariable("id") Long id) {
+        empresaServicio.updateEmpresa(id);
     }
 
     @DeleteMapping("/enterprises/{id}")
-    public String deleteEmpresa(@PathVariable("id") Long id) {
-        return "Delete Empresa ID";
+    public void deleteEmpresa(@PathVariable("id") Long id) {
+        empresaServicio.deleteEmpresa(id);
     }
 }
 
