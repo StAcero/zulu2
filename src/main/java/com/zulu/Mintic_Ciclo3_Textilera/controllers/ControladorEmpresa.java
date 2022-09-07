@@ -1,9 +1,9 @@
-package com.zulu.Mintic_Ciclo3_Textilera.Controladores;
-import com.zulu.Mintic_Ciclo3_Textilera.Empresa;
+package com.zulu.Mintic_Ciclo3_Textilera.controllers;
+import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class EmpresaControlador {
+public class ControladorEmpresa {
 
     @GetMapping("/enterprises")
     public String getEmpresas() {
