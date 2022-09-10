@@ -27,8 +27,7 @@ public class ControladorUsuarios {
     }
     @PatchMapping("{id}")
     public void updateUsuario(@RequestBody Empleado empleado) {
-        empleadoServicio.updateEmpleado(empleado);
-
+        // Pendiente
     }
 
     @DeleteMapping("{id}")
