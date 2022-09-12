@@ -1,12 +1,17 @@
 package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+
 @Table(name = "empresa")
 public class Empresa {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +28,7 @@ public class Empresa {
     @Column(name = "nit")
     Long nit;
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "empresa")
     private List<Empleado> listaEmpleado;
 
@@ -33,6 +39,14 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
         this.telefono = telefono;
         this.nit = nit;
+    }
+
+    public Long getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Long idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public String getnombreEmpresa() {

@@ -25,8 +25,8 @@ public class EmpresaServicio {
         empresaRepositorio.save(listElement);
 
     }
-    public void updateEmpresa(Long id) {
-        // Pendiente
+    public void updateEmpresa(Empresa empresa) {
+       empresaRepositorio.save(empresa);
     }
 
     public void deleteEmpresa(Long id) {

@@ -1,6 +1,9 @@
 package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,8 +23,8 @@ public class Empleado {
     @Column(name = "correo", length = 50)
     String correo;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
@@ -37,6 +40,14 @@ public class Empleado {
         this.correo = correo;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
     public NombresDeRol getRol() {
         return rol;
     }
@@ -44,16 +55,6 @@ public class Empleado {
     public void setRol(NombresDeRol rol) {
         this.rol = rol;
     }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-
 
     public String getNombres() {
         return nombres;

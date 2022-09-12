@@ -1,7 +1,9 @@
 package com.zulu.Mintic_Ciclo3_Textilera.controllers;
 import com.zulu.Mintic_Ciclo3_Textilera.entities.Empleado;
+import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
 import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class ControladorUsuarios {
     }
     @PostMapping
     public void addUsuario(@RequestBody Empleado empleado) {
+
         empleadoServicio.addEmpleado(empleado);
     }
 
@@ -25,13 +28,36 @@ public class ControladorUsuarios {
     public Empleado getUsuario(@PathVariable("id") Long id) {
         return empleadoServicio.getEmpleado(id);
     }
+
+
     @PatchMapping("{id}")
-    public void updateUsuario(@RequestBody Empleado empleado) {
-        // Pendiente
+
+    public ResponseEntity<Empleado> updateEnterprisePartially(
+            @PathVariable(value = "id") Long idUser, @RequestBody Empleado empleado
+    ){
+        // Filtrando el Empleado a actualizar en variable
+        Empleado emple = empleadoServicio.getEmpleado(idUser);
+
+        // Actualizando campos deseados.
+        emple.setNombres(empleado.getNombres());
+        emple.setApellidos(empleado.getApellidos());
+        emple.setCorreo(empleado.getCorreo());
+        emple.setRol(empleado.getRol());
+        emple.setEmpresa(empleado.getEmpresa());
+
+
+
+        // Guardando Actualizaciones
+        empleadoServicio.updateEmpleado(emple);
+
+        //Retornando Entidad actualizada
+        return ResponseEntity.ok(emple);
     }
 
+
+
     @DeleteMapping("{id}")
-    public void deleteUsuario(@PathVariable("id") Long id) {
+    public void deleteUsuario(@PathVariable(value = "id") Long id) {
         empleadoServicio.deleteEmpleado(id);
 
     }

@@ -24,10 +24,8 @@ public class EmpleadoServicio {
         empleadoRepo.save(listElement);
 
     }
-    public void updateEmpleado(Empleado Empleado, Long id) {
-        // Pendiente
-        Empleado test = empleadoRepo.findById(id).get();
-        test.setNombres("Luis Felipe");
+    public void updateEmpleado(Empleado empleado) {
+      empleadoRepo.save(empleado);
     }
 
     public void deleteEmpleado(Long id) {
