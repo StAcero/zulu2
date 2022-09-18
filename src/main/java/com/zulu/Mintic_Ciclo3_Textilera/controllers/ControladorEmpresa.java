@@ -1,19 +1,32 @@
 package com.zulu.Mintic_Ciclo3_Textilera.controllers;
+import com.zulu.Mintic_Ciclo3_Textilera.entities.Empleado;
 import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
+import com.zulu.Mintic_Ciclo3_Textilera.entities.MovimientoDinero;
+import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoServicio;
 import com.zulu.Mintic_Ciclo3_Textilera.services.EmpresaServicio;
+import com.zulu.Mintic_Ciclo3_Textilera.services.MovimientoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ControladorEmpresa {
     @Autowired
     private EmpresaServicio empresaServicio;
+
+    @Autowired
+    private EmpleadoServicio empleadoServicio;
+
+    @Autowired
+    private MovimientoServicio movimientoServicio;
+
+
+
     @GetMapping("/enterprises")
     public List<Empresa> getEmpresas() {
-
         return empresaServicio.getEmpresas();
     }
     @PostMapping("/enterprises")
@@ -28,7 +41,7 @@ public class ControladorEmpresa {
 
     @PatchMapping("/enterprises/{id}")
 
-    public ResponseEntity<Empresa> updateEnterprisePartially(
+    public ResponseEntity<String> updateEnterprisePartially(
             @PathVariable(value = "id") Long idEmpresa, @RequestBody Empresa empresa
     ){
         // Filtrando la empresa a actualizar en variable
@@ -43,8 +56,8 @@ public class ControladorEmpresa {
         // Guardando Actualizaciones
         empresaServicio.updateEmpresa(empre);
 
-        //Retornando Entidad actualizada
-        return ResponseEntity.ok(empre);
+        //Retornando mensaje "Actualizado"
+        return ResponseEntity.ok("Actualizado");
     }
 
 
@@ -52,6 +65,10 @@ public class ControladorEmpresa {
     public void deleteEmpresa(@PathVariable("id") Long id) {
         empresaServicio.deleteEmpresa(id);
     }
+
+
+
+
 }
 
 

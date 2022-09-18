@@ -31,4 +31,8 @@ public class EmpleadoServicio {
     public void deleteEmpleado(Long id) {
         empleadoRepo.deleteById(id);
     }
+
+    public List<Empleado> findUserByEnterpriseId(Long id){
+        return empleadoRepo.findUserByEnterpriseId(id);
+    }
 }

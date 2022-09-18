@@ -1,16 +1,22 @@
 package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
 
+import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoServicio;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 
 @Table(name = "empresa")
 public class Empresa {
+
 
 
     @Id
@@ -28,9 +34,7 @@ public class Empresa {
     @Column(name = "nit")
     Long nit;
 
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToMany(mappedBy = "empresa")
-    private List<Empleado> listaEmpleado;
+
 
     public Empresa(){}
 
@@ -80,4 +84,6 @@ public class Empresa {
     public void setNit(Long nit) {
         this.nit = nit;
     }
+
+
 }

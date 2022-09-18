@@ -32,7 +32,7 @@ public class ControladorUsuarios {
 
     @PatchMapping("{id}")
 
-    public ResponseEntity<Empleado> updateEnterprisePartially(
+    public ResponseEntity<String> updateEnterprisePartially(
             @PathVariable(value = "id") Long idUser, @RequestBody Empleado empleado
     ){
         // Filtrando el Empleado a actualizar en variable
@@ -50,8 +50,8 @@ public class ControladorUsuarios {
         // Guardando Actualizaciones
         empleadoServicio.updateEmpleado(emple);
 
-        //Retornando Entidad actualizada
-        return ResponseEntity.ok(emple);
+        //Retornando mensaje "Actualizado"
+        return ResponseEntity.ok("Actualizado");
     }
 
 
@@ -60,6 +60,11 @@ public class ControladorUsuarios {
     public void deleteUsuario(@PathVariable(value = "id") Long id) {
         empleadoServicio.deleteEmpleado(id);
 
+    }
+
+    @GetMapping("/ent/{id}")
+    public List<Empleado> getUsers(@PathVariable(value = "id") Long id){
+        return empleadoServicio.findUserByEnterpriseId(id);
     }
 
 

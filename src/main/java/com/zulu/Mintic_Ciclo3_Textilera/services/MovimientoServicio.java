@@ -7,6 +7,7 @@ import com.zulu.Mintic_Ciclo3_Textilera.repositories.MovimientoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,7 +26,6 @@ public class MovimientoServicio {
 
     public void addMovimientoDinero(MovimientoDinero listElement) {
         movimientoRepo.save(listElement);
-
     }
     public void updateMovimientoDinero(MovimientoDinero movimientoDinero) {
         movimientoRepo.save(movimientoDinero);
@@ -33,6 +33,12 @@ public class MovimientoServicio {
 
     public void deleteMovimientoDinero(Long id) {
         movimientoRepo.deleteById(id);
+    }
+
+    public List<MovimientoDinero> findMovimientoDineroByEnterpriseID(Long id){
+
+       return movimientoRepo.findMovimientoDineroByEnterpriseId(id);
+
     }
 
 

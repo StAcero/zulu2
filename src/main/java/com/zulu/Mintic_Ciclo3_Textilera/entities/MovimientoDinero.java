@@ -26,6 +26,8 @@ public class MovimientoDinero {
     @JoinColumn(name = "empleado_id")
     private Empleado empleado; // Id del perfil del usuario que realizó el movimiento del dinero.
 
+
+
     public MovimientoDinero(){
     }
 
@@ -60,5 +62,11 @@ public class MovimientoDinero {
         this.conceptoMovimiento = conceptoMovimiento;
     }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
 
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
 }
