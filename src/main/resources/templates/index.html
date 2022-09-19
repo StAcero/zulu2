@@ -1,0 +1,25 @@
+<html lang="en" xmls:tn="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:xmls="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initia-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href = "https://cdn.jsdelivr.net/nps/bootstrap@5.2.8/dist/css/bootstrap.min.css" rel="stylesheet" intergrity="sha384-gH2yIJqk">
+    <title>Hola soy un Titulo</title>
+</head>
+<body>
+<main>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class ="display-5 fw-bold"> Textilera App - Zulu</h1>
+        <div class="col-lg-6 mx-auto">
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3"> Llevame a la aplicacion / Log In </a>
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Saber mas</button>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdeliver.net/npm/bootstraap@5.2.0/dist/js/bootstraap.bungle.main.js" integrity="sha384-A3r"/>
+</body>
+</html>
