@@ -11,8 +11,8 @@
     img.card-img-top{
       display: block;
       margin: auto;
-      width: 50px;
-      height: 50px;
+      width: auto;
+      height: 25%;
     }
     </style>
 </head>
@@ -20,22 +20,22 @@
 <main>
 <form style="background-color:black; background-image: linear-gradient(black, darkgrey)">
     <div class="px-2 py-3 mx-3 text-center">
-        <img src="C:\Users\Usuario\Downloads\Logo.png?format=1500w" class="d-block" height="70" alt="Ofrecemos disculpas página en construcción"/>
-        <h1 class="display-5 fw-bold mb-4"style="color:white"> ZULÚ ENTERPRISE</h1>
+        <img src="https://www.lego.com/cdn/cs/catalog/assets/blt2f85682982941b02/1/bb8-thumb.png?format=1500w" class="d-block" style="margin:5px 80px" height="120" alt="Ofrecemos disculpas página en construcción"/>
+        <h1 class="display-5 fw-bold mb-4"style="color:white"> TEXTILES APP-ZULÚ</h1>
     </div>
     <div class="px-2 py-3 mx-3 text-left">
 
-        <h5 class="display-6 fw-bold mb-4"style="color:white"> Bienvenido a la aplicación</h5>
+        <h5 class="display-6 fw-bold mb-4"style="color:white"> Bienvenido</h5>
     </div>
 </form>
 <div style="float:left;height:280px; ; padding:20px; width:280px;background-image: linear-gradient(darkgrey,white)">
 <div class="d-flex gap-4 justify-content-center btn-group-vertical">
 
-        <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Ingresos y egresos</font></a>
+        <a  th:href="@{/inicio/qtran}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Ingresos y egresos</font></a>
         <hr>
-        <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Usuarios</font></a>
+        <a  class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Usuarios</font></a>
         <hr>
-        <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Empresas</font></a>
+        <a  class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Empresas</font></a>
 
         <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
              th:text="${mensaje}"
@@ -46,25 +46,25 @@
 <br><br><br>
 <div class="d-flex gap-4 justify-content-center">
   <div class="card" style="width: 18rem;height: 18rem; text-align: center; margin:10px 45px 120px">
-  <img src="C:\Users\Usuario\Downloads\Paginas\Transaction.png" class="card-img-top" alt="Error">
+  <img src="https://i.pinimg.com/originals/25/fe/71/25fe71c60949a73ec461b23a4ada32e4.png" class="card-img-top" alt="Error">
   <div class="card-body">
     <h5 class="card-title">Sistema de gestión <br>de ingresos y gastos</h5>
     <p class="card-text">Podras realizar consultas y registros de nuevas transacciones.</p>
-    <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Enter</font></a>
+    <a th:href="@{/inicio/qtran}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Entrar</font></a>
   </div></div>
   <div class="card" style="width: 18rem;height: 18rem; text-align: center; margin:10px 45px 120px">
-  <img src="User.png" class="card-img-top" alt="Error">
+  <img src="https://www.lego.com/cdn/cs/catalog/assets/blt21a560656a0bccb9/1/Mugshots_504x672_0006s_0019_Storm-Trooper.png" class="card-img-top" alt="Error">
   <div class="card-body">
     <h5 class="card-title">Sistema de gestión <br>de usuarios</h5>
     <p class="card-text">Podras realizar consultas y registros de nuevos empleados.</p>
-    <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Enter</font></a>
+    <a th:href="querytransaction.html" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Entrar</font></a>
   </div></div>
   <div class="card" style="width: 18rem;height: 18rem; text-align: center; margin:10px 45px 120px">
-  <img src="Enterprise.png" class="card-img-top" alt="Error">
+  <img src="https://www.pngmart.com/files/19/Lego-Star-Wars-PNG-Free-Download.png" class="card-img-top" alt="Error">
   <div class="card-body">
     <h5 class="card-title">Sistema de gestión de <br>de empresas</h5>
     <p class="card-text">Podras realizar consultas y registros de nuevas empresas.</p>
-    <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Enter</font></a>
+    <a th:href="querytransaction" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=2>Entrar</font></a>
   </div></div>
 
 </div>

@@ -12,8 +12,8 @@
   <main>
   <form style="background-color:black; background-image: linear-gradient(black, darkgrey)">
       <div class="px-2 py-3 mx-3 text-center">
-          <img src="C:\Users\Usuario\Downloads\Logo.png?format=1500w" class="d-block" height="70" alt="Ofrecemos disculpas página en construcción"/>
-          <h1 class="display-5 fw-bold mb-4"style="color:white"> ZULÚ ENTERPRISE</h1>
+          <img src="https://www.lego.com/cdn/cs/catalog/assets/blt2f85682982941b02/1/bb8-thumb.png?format=1500w" class="d-block" height="70" alt="Ofrecemos disculpas página en construcción"/>
+          <h1 class="display-5 fw-bold mb-4"style="color:white">TEXTILES APP-ZULÚ</h1>
       </div>
       <div class="px-2 py-3 mx-3 text-left">
 
@@ -23,11 +23,11 @@
   <div style="float:left;height:280px; ; padding:20px; width:280px;background-image: linear-gradient(darkgrey,white)">
   <div class="d-flex gap-4 justify-content-center btn-group-vertical">
 
-          <a th:href="../indexlp.html" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Ingresos y egresos</font></a>
+          <a th:href="@{/inicio}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Ingresos y egresos</font></a>
           <hr>
-          <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Usuarios</font></a>
+          <a th:href="@{/inicio}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Usuarios</font></a>
           <hr>
-          <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Empresas</font></a>
+          <a th:href="@{/inicio}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Empresas</font></a>
 
           <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
                th:text="${mensaje}"
@@ -35,9 +35,12 @@
           </div>
   </div>
   </div>
+      <div class="d-flex gap-4 justify-content-center btn-group-vertical">
 
+          <a th:href="@{/inicio/qtran/tran}" class="btn btn-secondary sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" style="margin:10px"><font size=5>Crear nueva transacción</font></a>
+      </div>
 
-<div style="clear:both; padding:10px; text-align:center; background-image: linear-gradient(white,darkgrey)">
+          <div style="clear:both; padding:10px; text-align:center; background-image: linear-gradient(white,darkgrey)">
 <p>Zulú Group<p>
   <div class="col sqs-col-9 span-9"><div class="row sqs-row"><div class="col sqs-col-4 span-4"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-76040dec54b2a6a4fd91"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;text-align:center;">Cl. 67 #53-108, </p><p class="" style="white-space:pre-wrap;">Medellín, Aranjuez, </p><p class="" style="white-space:pre-wrap;">+57 (604) 2198332</p>
   </div></div></div></div></div>

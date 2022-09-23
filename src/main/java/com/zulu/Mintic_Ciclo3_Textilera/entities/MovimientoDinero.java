@@ -12,10 +12,10 @@ public class MovimientoDinero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long transactionID; // ID de la transacción.
+    public Long transactionID; // ID de la transacción.
 
     @Column(name = "concepto_movimiento")
-    String conceptoMovimiento;      // Descripción del movimiento.
+    private String conceptoMovimiento;      // Descripción del movimiento.
 
     @Column(name = "monto_dinero")
     float montoDinero = 0.0f;      // Montos positivos y negativos de x movimiento.
