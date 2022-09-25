@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,17 +35,26 @@ public class Empresa {
     @Column(name = "nit")
     Long nit;
 
+    @OneToMany(mappedBy = "empresa")
+    @JoinColumn(name = "empleado_id")
+    public List<Empleado> empleado = new ArrayList<>();
 
+    public Empresa (){}
 
-    public Empresa(){}
-
-    public Empresa(String nombreEmpresa, String direccionEmpresa, Long telefono, Long nit) {
+    public Empresa(String nombreEmpresa, String direccionEmpresa, Long telefono, Long nit, List<Empleado> empleado) {
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.telefono = telefono;
         this.nit = nit;
+        this.empleado = empleado;
+    }
+    public List<Empleado> getEmpleado() {
+        return empleado;
     }
 
+    public void setEmpleado(List<Empleado> empleado) {
+        this.empleado = empleado;
+    }
     public Long getIdEmpresa() {
         return idEmpresa;
     }

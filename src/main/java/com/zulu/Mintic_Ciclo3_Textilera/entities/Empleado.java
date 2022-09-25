@@ -38,11 +38,13 @@ public class Empleado {
 
     public Empleado(){}
 
-    public Empleado(String nombres, String apellidos, String correo) {
+    public Empleado(String nombres, String apellidos, String correo, Empresa empresa, NombresDeRol rol ) {
 
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
+        this.empresa = empresa;
+        this.rol = rol;
     }
 
     public Empresa getEmpresa() {
