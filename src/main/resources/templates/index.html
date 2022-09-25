@@ -1,25 +1,116 @@
-<html lang="en" xmls:tn="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:xmls="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initia-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href = "https://cdn.jsdelivr.net/nps/bootstrap@5.2.8/dist/css/bootstrap.min.css" rel="stylesheet" intergrity="sha384-gH2yIJqk">
-    <title>Hola soy un Titulo</title>
-</head>
-<body>
-<main>
-    <div class="px-4 py-5 my-5 text-center">
-        <h1 class ="display-5 fw-bold"> Textilera App - Zulu</h1>
-        <div class="col-lg-6 mx-auto">
-            <div sec:authorize="!isAuthenticated()">
-                <a th:href="@{/oauth2/authorization/auth0}" class="btn btn-primary btn-lg px-4 gap-3"> Llevame a la aplicacion / Log In </a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Zúlu app</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Simple line icons-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#page-top">Menú</a></li>
+                <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+                <li class="sidebar-nav-item"><a href="#about">Conoce más</a></li>
+                <li class="sidebar-nav-item"><a href="#services">Servicios</a></li>
+                <li><a class="dropdown-item" href="#!">Logout</a></li>
+            </ul>
+        </nav>
+        <!-- Header-->
+
+        <header class="masthead d-flex align-items-center">
+            <div class="container px-4 px-lg-5 text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/2280/2280967.png" class="d-block mx-auto mb-4"style="Position:relative" height="150" alt="Ofrecemos disculpas página en construcción"/>
+                <h1 class="mb-1">ZULÚ</h1>
+                <h3 class="mb-5"><em>Tu aplicación de gestión orientada al sector de juguetes</em></h3>
+                <a class="btn btn-primary btn-xl" href="#about">Conoce más</a>
             </div>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Saber mas</button>
-        </div>
-    </div>
-</main>
-<script src="https://cdn.jsdeliver.net/npm/bootstraap@5.2.0/dist/js/bootstraap.bungle.main.js" integrity="sha384-A3r"/>
-</body>
+        </header>
+        <!-- About-->
+        <section class="content-section bg-light" id="about">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-10">
+                        <h2>Zulú Group es un grupo de desarrolladores encargados de mejorar procesos de gestión!</h2>
+                        <p class="lead mb-5">
+                            Nuestro mayor enfoque es el sector de las jugueterias. Y como diria un vaquero "Estar al lado de un niño es lo más noble que puede hacer un juguete". Y nosotros como plataforma de gestión lo más noble es estar de lado de usted.<br>
+                            <a href="https://www.youtube.com/watch?v=V0tblJh2j-4">¡Hasta el infinito y más allá!</a>
+
+                        </p>
+                        <a class="btn btn-dark btn-xl" href="#services">Que Ofrecemos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services-->
+        <section class="content-section bg-primary text-white text-center" id="services">
+            <div class="container px-4 px-lg-5">
+                <div class="content-section-heading">
+                    <h3 class="text-secondary mb-0">Servicios</h3>
+                    <h2 class="mb-5">Que Ofrecemos</h2>
+                </div>
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><img src="https://i.pinimg.com/originals/25/fe/71/25fe71c60949a73ec461b23a4ada32e4.png" class="d-block"style="padding: 5px 20px" height="100" alt="Ofrecemos disculpas página en construcción"/></span>
+                        <h4><strong>Sistema de gestión <br>de ingresos y gastos</strong></h4>
+                        <p class="text-faded mb-0">Podras realizar consultas y registros de nuevas transacciones.</p>
+                        <br>
+                        <a class="btn btn-dark btn-xl" href="movements.html">Entrar</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><img src="https://www.pngmart.com/files/19/Lego-Star-Wars-PNG-Image.png" class="d-block"style="padding: 20px 30px" height="110" alt="Ofrecemos disculpas página en construcción"/></span>
+                        <h4><strong>Sistema de gestión <br>de usuarios</strong></h4>
+                        <p class="text-faded mb-0">Podras realizar consultas y registros de nuevos empleados.</p>
+                        <br>
+                        <a class="btn btn-dark btn-xl" href="users.html">Entrar</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><img src="https://www.pngmart.com/files/19/Lego-Star-Wars-Toys-PNG-Image.png" class="d-block"style="padding: 20px 25px" height="110" alt="Ofrecemos disculpas página en construcción"/></span>
+                        <h4><strong>Sistema de gestión de <br>de empresas</strong></h4>
+                        <p class="text-faded mb-0">
+                            Podras realizar consultas y registros de nuevas empresas.</p>
+                        <br>
+                        <a class="btn btn-dark btn-xl" href="enterprises.html">Entrar</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <span class="service-icon rounded-circle mx-auto mb-3"><img src="https://www.pngmart.com/files/19/Lego-Star-Wars-PNG-Photos.png" class="d-block"style="padding: 20px 35px" height="110" alt="Ofrecemos disculpas página en construcción"/></i></span>
+                        <h4><strong>Preguntas</strong></h4><br>
+                          <p class="text-faded mb-0">¿No eres un poco bajo para ser un soldado de asalto?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container px-4 px-lg-5">
+                <ul class="list-inline mb-5">
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white" href="https://github.com/MTZuluDevTeam/zulu"><i class="icon-social-github"></i></a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+    </body>
 </html>

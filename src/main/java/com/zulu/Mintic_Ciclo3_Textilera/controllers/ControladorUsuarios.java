@@ -16,7 +16,7 @@ public class ControladorUsuarios {
 
     @GetMapping
     public List<Empleado> getUsuarios() {
-       return empleadoServicio.getEmpleados();
+       return empleadoServicio.getAllEmpleados();
     }
     @PostMapping
     public void addUsuario(@RequestBody Empleado empleado) {
