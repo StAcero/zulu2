@@ -78,3 +78,29 @@ function fadeIn(el, display) {
         }
     })();
 };
+window.onload=function(){
+
+        var msg= [[${mensaje}]];
+        if (msg == "saveOK"){
+            Command : toastr["success"]("Empleado registrado con éxito!")
+            }
+        else if (msg == "updateOK"){
+            Command : toastr["success"]("Empleado actualizado con éxito!")
+        }
+        else if (msg == "deleteOK"){
+            Command : toastr["error"]("Registro de empleado eliminado con éxito!")
+        }
+        else if (msg == "deleteError"){
+            Command : toastr["error"]("Registro de empleado no ha sido eliminado!")
+        }
+        toastr.options={
+            "positionClass": "toast-top-right",
+            "showDuration":"300",
+            "showMethod":"fadeIn",
+            "hideMethod":"fadeOut",
+        }
+
+
+    }
+  window.onload2=function(){
+  document.getElementById("password").type="password"}

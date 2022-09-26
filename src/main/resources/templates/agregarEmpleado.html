@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
     a{
     color:white;
     }
@@ -34,7 +34,14 @@
           <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required="required"></div>
       </div>
     </div>
-
+    <!--Campo para apellido-->
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label class="col-md-3" for="apellido">Apellido del Empleado:</label>
+        <div class="col-md-6">
+          <input type="text" th:field="*{apellido}" class="form-control" id="apellido" required="required"></div>
+      </div>
+    </div>
     <!--Campo para correo-->
     <div class="row">
       <div class="form-group col-md-12">

@@ -5,8 +5,8 @@ spring:
       client:
         registration:
           auth0:
-            client-id: ikttBZHzgIvioBfXlCOIa6fjDluVCuFS
-            client-secret: 2nDloO_NsQOL5CIRgEf4VfPMoURDz3a3WRjnVKGkD7UrkJFdur03XP0QXalwXNI1
+            client-id: CszMqIyeNvdwjuMjNUm8zQGPEBNHOnx1
+            client-secret: l0U8Fq2ekQTdncIPRdTUeMEndnciiSuZvhZ22GJGd4WKI-dbB0nup6t252h8JmGG
             scope:
               - openid
               - profile
@@ -14,4 +14,4 @@ spring:
         provider:
           auth0:
             # trailing slash is important!
-            issuer-uri: https://dev-bebggfy2.us.auth0.com/
+            issuer-uri: https://demo1task.us.auth0.com/
