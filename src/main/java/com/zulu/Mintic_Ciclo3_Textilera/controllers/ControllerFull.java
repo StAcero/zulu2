@@ -55,7 +55,7 @@ public class ControllerFull {
             User user = this.userService.getOrCreateUser(principal.getClaims());
             model.addAttribute("user", user);
         }
-        return "indexlp";
+        return "index";
     }
 
     @GetMapping("/inicio")
