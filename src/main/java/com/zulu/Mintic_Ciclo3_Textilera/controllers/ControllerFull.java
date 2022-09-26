@@ -37,7 +37,7 @@ public class ControllerFull {
     EmpleadoService empleadoService;
     @Autowired
     MovimientoServicio movimientoService;
-    @Autowired
+
     UserService userService;
 
     public ControllerFull(EmpresaServicio empresaService, EmpleadoService empleadoService, MovimientoServicio movimientoService, UserService userService) {
