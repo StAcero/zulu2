@@ -88,10 +88,10 @@ public class ControllerFull {
         empl.setPassword(passEncriptada);
         if(empleadoService.saveOrUpdateEmpleado(empl)==true){
             redirectAttributes.addFlashAttribute("mensaje","saveOK");
-            return "redirect:/users";
+            return "redirect:/VerEmpleados";
         }
         redirectAttributes.addFlashAttribute("mensaje","saveError");
-        return "redirect:/addusers";
+        return "redirect:/AgregarEmpleado";
     }
 
     @GetMapping("/EditarEmpleado/{id}")
@@ -115,10 +115,10 @@ public class ControllerFull {
         }
         if(empleadoService.saveOrUpdateEmpleado(empl)){
             redirectAttributes.addFlashAttribute("mensaje","updateOK");
-            return "redirect:/users";
+            return "redirect:/VerEmpleados";
         }
         redirectAttributes.addFlashAttribute("mensaje","updateError");
-        return "redirect:/modusers/"+empl.getId();
+        return "redirect:/EditarEmpleado/"+empl.getId();
 
     }
 
@@ -126,10 +126,10 @@ public class ControllerFull {
     public String eliminarEmpleado(@PathVariable Integer id, RedirectAttributes redirectAttributes){
         if (empleadoService.deleteEmpleado(id)){
             redirectAttributes.addFlashAttribute("mensaje","deleteOK");
-            return "redirect:/users";
+            return "redirect:/VerEmpleados";
         }
         redirectAttributes.addFlashAttribute("mensaje", "deleteError");
-        return "redirect:/users";
+        return "redirect:/VerEmpleados";
     }
 
     @GetMapping("/Empresa/{id}/Empleados") //Filtrar los empleados por empresa
@@ -165,10 +165,10 @@ public class ControllerFull {
 
         if(empresaService.saveOrUpdateEmpresa(empr)==true){
         redirectAttributes.addFlashAttribute("mensaje","saveOK");
-        return "redirect:/enterprises";
+        return "redirect:/VerEmpresas";
         }
         redirectAttributes.addFlashAttribute("mensaje","saveError");
-        return "redirect:/addenterprises";
+        return "redirect:/AgregarEmpresa";
         }
 
     @GetMapping("/EditarEmpresa/{id}")
@@ -183,7 +183,7 @@ public class ControllerFull {
     }
 
     @PostMapping("/ActualizarEmpresa")
-    public String updateEmppresa(@ModelAttribute("empl") Empresa empr, RedirectAttributes redirectAttributes){
+    public String updateEmpresa(@ModelAttribute("empl") Empresa empr, RedirectAttributes redirectAttributes){
         Integer id=empr.getId(); //Sacamos el id del objeto empl
         String Oldpass=empleadoService.getEmpleadoById(id).getPassword(); //Con ese id consultamos la contraseña que ya esta en la base
         /*if(!empr.getPassword().equals(Oldpass)){
@@ -192,10 +192,10 @@ public class ControllerFull {
 
         if(empresaService.saveOrUpdateEmpresa(empr)){
             redirectAttributes.addFlashAttribute("mensaje","updateOK");
-            return "redirect:/enterprises";
+            return "redirect:/VerEmpresas";
         }
         redirectAttributes.addFlashAttribute("mensaje","updateError");
-        return "redirect:/modenterprises/"+empr.getId();
+        return "redirect:/EditarEmpresa/"+empr.getId();
 
     }
 
@@ -203,10 +203,10 @@ public class ControllerFull {
     public String eliminarEmpresa(@PathVariable Integer id, RedirectAttributes redirectAttributes){
         if (empresaService.deleteEmpresa(id)){
         redirectAttributes.addFlashAttribute("mensaje","deleteOK");
-        return "redirect:/enterprises";
+        return "redirect:/VerEmpresas";
         }
         redirectAttributes.addFlashAttribute("mensaje", "deleteError");
-        return "redirect:/enterprises";
+        return "redirect:/VerEmpresas";
         }
     //MOVIMIENTOS
     @GetMapping ("/VerMovimientos")
@@ -233,10 +233,10 @@ public class ControllerFull {
         movi.setPassword(passEncriptada);*/
         if(movimientoService.saveOrUpdateMovimiento(movi)==true){
             redirectAttributes.addFlashAttribute("mensaje","saveOK");
-            return "redirect:/movements";
+            return "redirect:/VerMovimientos";
         }
         redirectAttributes.addFlashAttribute("mensaje","saveError");
-        return "redirect:/addmovements";
+        return "redirect:/AgregarMovimiento";
     }
 
     @GetMapping("/EditarMovimiento/{id}")
@@ -260,10 +260,10 @@ public class ControllerFull {
         }*/
         if(movimientoService.saveOrUpdateMovimiento(movi)){
             redirectAttributes.addFlashAttribute("mensaje","updateOK");
-            return "redirect:/movements";
+            return "redirect:/VerMovimientos";
         }
         redirectAttributes.addFlashAttribute("mensaje","updateError");
-        return "redirect:/modmovements/"+movi.getTransactionID();
+        return "redirect:/EditarMovimientos/"+movi.getTransactionID();
 
     }
 
@@ -271,10 +271,10 @@ public class ControllerFull {
     public String eliminarMovimiento(@PathVariable Integer id, RedirectAttributes redirectAttributes){
         if (movimientoService.deleteMovimiento(id)){
             redirectAttributes.addFlashAttribute("mensaje","deleteOK");
-            return "redirect:/movements";
+            return "redirect:/VerMovimientos";
         }
         redirectAttributes.addFlashAttribute("mensaje", "deleteError");
-        return "redirect:/movements";
+        return "redirect:/VerMovimientos";
     }
 
     @GetMapping("/Empleado/{id}/Movimientos") //Filtrar los movimientos por empleado
