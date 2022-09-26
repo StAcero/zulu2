@@ -1,49 +1,88 @@
 package com.zulu.Mintic_Ciclo3_Textilera.entities;
 
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "empleado")
+@Table(name="empleado")
 public class Empleado {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long idUser;
-
-    @Column(name = "nombres", length = 50)
-    String nombres;
-
-    @Column(name = "apellidos", length = 50)
-    String apellidos;
-
-    @Column(name = "correo", length = 50)
-    String correo;
-
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+    private String nombre;
+    private String apellido;
+    private String correo;
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
+    private String rol;
+    private String password;
+    private Boolean estado;
 
+    public Empleado() {
+    }
 
-
-
-    @Enumerated(EnumType.STRING)
-    private NombresDeRol rol;
-
-    public Empleado(){}
-
-    public Empleado(String nombres, String apellidos, String correo, Empresa empresa, NombresDeRol rol ) {
-
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+    public Empleado(String nombre, String apellido, String correo, Empresa empresa, String rol, String password, Boolean estado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.correo = correo;
         this.empresa = empresa;
+        this.rol = rol;
+        this.password= password;
+        this.estado=estado;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
         this.rol = rol;
     }
 
@@ -55,43 +94,4 @@ public class Empleado {
         this.empresa = empresa;
     }
 
-    public NombresDeRol getRol() {
-        return rol;
-    }
-
-    public void setRol(NombresDeRol rol) {
-        this.rol = rol;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
 }

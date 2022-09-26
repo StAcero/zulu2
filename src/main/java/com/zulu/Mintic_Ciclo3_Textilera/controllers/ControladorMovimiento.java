@@ -1,20 +1,13 @@
 package com.zulu.Mintic_Ciclo3_Textilera.controllers;
 
-import com.zulu.Mintic_Ciclo3_Textilera.entities.Empleado;
-import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
-import com.zulu.Mintic_Ciclo3_Textilera.entities.MovimientoDinero;
 import com.zulu.Mintic_Ciclo3_Textilera.entities.MovimientoDinero;
 
-import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoServicio;
+import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoService;
 import com.zulu.Mintic_Ciclo3_Textilera.services.EmpresaServicio;
 import com.zulu.Mintic_Ciclo3_Textilera.services.MovimientoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -28,13 +21,13 @@ public class ControladorMovimiento {
     private EmpresaServicio empresaServicio;
 
     @Autowired
-    private EmpleadoServicio empleadoServicio;
+    private EmpleadoService empleadoServicio;
 
 
 
     @GetMapping
     public List<MovimientoDinero> getMovimientoDinero() {
-        return movimientoServicio.getMovimientoDinero();
+        return movimientoServicio.getAllMovimiento();
     }
 
    /* @PostMapping
@@ -48,42 +41,42 @@ public class ControladorMovimiento {
         return new RedirectView("/inicio/qtran/tran");*/
     @PostMapping
     public void addMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
-       movimientoServicio.addMovimientoDinero(movimientoDinero);
+       movimientoServicio.saveOrUpdateMovimiento(movimientoDinero);
     }
 
     @GetMapping("{id}")
-    public MovimientoDinero getMovimientoDineroById(@PathVariable("id") Long id) {
-        return movimientoServicio.getMovimientoDinero(id);
+    public MovimientoDinero getMovimientoDineroById(@PathVariable("id") int id) {
+        return movimientoServicio.getMovimientoById(id);
     }
     @PatchMapping("{id}")
 
     public ResponseEntity<String> updateEnterprisePartially(
-            @PathVariable(value = "id") Long id, @RequestBody MovimientoDinero movimientoDinero
+            @PathVariable(value = "id") int id, @RequestBody MovimientoDinero movimientoDinero
     ){
         // Filtrando el Empleado a actualizar en variable
-        MovimientoDinero movDine = movimientoServicio.getMovimientoDinero(id);
+        movimientoDinero = movimientoServicio.getMovimientoById(id);
 
         // Actualizando campos deseados.
-        movDine.setConceptoMovimiento(movimientoDinero.getConceptoMovimiento());
-        movDine.setMontoDinero(movimientoDinero.getMontoDinero());
-        movDine.setEmpleado(movimientoDinero.getEmpleado());
-        movDine.getEmpleado().setEmpresa(movimientoDinero.getEmpleado().getEmpresa());
+        movimientoDinero.setConceptoMovimiento(movimientoDinero.getConceptoMovimiento());
+        movimientoDinero.setMontoDinero(movimientoDinero.getMontoDinero());
+        movimientoDinero.setEmpleado(movimientoDinero.getEmpleado());
+        movimientoDinero.getEmpleado().setEmpresa(movimientoDinero.getEmpleado().getEmpresa());
 
 
         // Guardando Actualizaciones
-        movimientoServicio.updateMovimientoDinero(movDine);
+        movimientoServicio.saveOrUpdateMovimiento(movimientoDinero);
 
         //Retornando mensaje "Actualizado"
         return ResponseEntity.ok("Actualizado");
     }
 
     @DeleteMapping("{id}")
-    public void deleteMovimientoDinero(@PathVariable("id") Long id) {
-        movimientoServicio.deleteMovimientoDinero(id);
+    public void deleteMovimientoDinero(@PathVariable("id") int id) {
+        movimientoServicio.deleteMovimiento(id);
     }
-
+/*
     @GetMapping("enterprises/{id}")
     public List<MovimientoDinero> findMovimientoDineroByEnterpriseId(@PathVariable("id") Long id){
         return movimientoServicio.findMovimientoDineroByEnterpriseID(id);
-    }
+    }*/
 }

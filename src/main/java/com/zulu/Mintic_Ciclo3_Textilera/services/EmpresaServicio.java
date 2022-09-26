@@ -1,45 +1,47 @@
 package com.zulu.Mintic_Ciclo3_Textilera.services;
 
-import com.zulu.Mintic_Ciclo3_Textilera.entities.Empleado;
+
 import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
-import com.zulu.Mintic_Ciclo3_Textilera.entities.MovimientoDinero;
-import com.zulu.Mintic_Ciclo3_Textilera.repositories.EmpresaRepositorio;
-import com.zulu.Mintic_Ciclo3_Textilera.repositories.MovimientoRepo;
+import com.zulu.Mintic_Ciclo3_Textilera.repositories.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class EmpresaServicio {
     @Autowired
-    private EmpresaRepositorio empresaRepositorio;
+    EmpresaRepository empresaRepository;
 
-    @Autowired
-    private MovimientoRepo movimientoRepo;
-
-    public List<Empresa> getEmpresas(){
-        return empresaRepositorio.findAll();
+    //Metodo para ver todos las empresas registrados
+    public List<Empresa> getAllEmpresa(){
+        List<Empresa> empresaList= new ArrayList<>();
+        empresaRepository.findAll().forEach(empleado -> empresaList.add(empleado));
+        return empresaList;
     }
 
-    public Empresa getEmpresa(Long id) {
-        return empresaRepositorio.findById(id).get();
+    //Metodo para buscar empresa por ID
+    public Empresa getEmpresaById(Integer id){ //Existe optional y asi se podria usar
+
+        return empresaRepository.findById(id).get();
     }
 
-    public void addEmpresas(Empresa listElement) {
-        empresaRepositorio.save(listElement);
-
-    }
-    public void updateEmpresa(Empresa empresa) {
-       empresaRepositorio.save(empresa);
-    }
-
-    public void deleteEmpresa(Long id) {
-        empresaRepositorio.deleteById(id);
+    //Metodo para guardar o actualizar registros en Empresa
+    public boolean saveOrUpdateEmpresa(Empresa empr){
+        Empresa empre=empresaRepository.save(empr);
+        if (empresaRepository.findById(empre.getId())!=null){
+            return true;
+        }
+        return false;
     }
 
-    public List<MovimientoDinero> findMovimientoDineroByEnterpriseId(Long id){
-        return movimientoRepo.findMovimientoDineroByEnterpriseId(id);
+    //Metodo para eliminar un registro de Empresa por Id
+    public boolean deleteEmpresa(Integer id){
+        empresaRepository.deleteById(id);
+        if(this.empresaRepository.findById(id).isPresent()){
+            return false;
+        }
+        return true;
     }
-
 }

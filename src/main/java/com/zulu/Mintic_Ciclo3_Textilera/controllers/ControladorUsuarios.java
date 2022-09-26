@@ -1,7 +1,6 @@
 package com.zulu.Mintic_Ciclo3_Textilera.controllers;
 import com.zulu.Mintic_Ciclo3_Textilera.entities.Empleado;
-import com.zulu.Mintic_Ciclo3_Textilera.entities.Empresa;
-import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoServicio;
+import com.zulu.Mintic_Ciclo3_Textilera.services.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,43 +11,44 @@ import java.util.List;
 @RequestMapping("/users")
 public class ControladorUsuarios {
     @Autowired
-    private EmpleadoServicio empleadoServicio;
+    private EmpleadoService empleadoServicio;
 
     @GetMapping
     public List<Empleado> getUsuarios() {
-       return empleadoServicio.getAllEmpleados();
+       return empleadoServicio.getAllEmpleado();
     }
     @PostMapping
     public void addUsuario(@RequestBody Empleado empleado) {
 
-        empleadoServicio.addEmpleado(empleado);
+        empleadoServicio.saveOrUpdateEmpleado(empleado);
     }
 
     @GetMapping("{id}")
-    public Empleado getUsuario(@PathVariable("id") Long id) {
-        return empleadoServicio.getEmpleado(id);
+    public Empleado getUsuario(@PathVariable("id") int id) {
+
+        return empleadoServicio.getEmpleadoById(id);
     }
 
 
     @PatchMapping("{id}")
 
     public ResponseEntity<String> updateEnterprisePartially(
-            @PathVariable(value = "id") Long idUser, @RequestBody Empleado empleado
+            @PathVariable(value = "id") int id, @RequestBody Empleado empleado
     ){
         // Filtrando el Empleado a actualizar en variable
-        Empleado emple = empleadoServicio.getEmpleado(idUser);
+        empleado = empleadoServicio.getEmpleadoById(id);
 
         // Actualizando campos deseados.
-        emple.setNombres(empleado.getNombres());
-        emple.setApellidos(empleado.getApellidos());
-        emple.setCorreo(empleado.getCorreo());
-        emple.setRol(empleado.getRol());
-        emple.setEmpresa(empleado.getEmpresa());
+        empleado.setNombre(empleado.getNombre());
+        empleado.setApellido(empleado.getApellido());
+        empleado.setCorreo(empleado.getCorreo());
+        empleado.setRol(empleado.getRol());
+        empleado.setEmpresa(empleado.getEmpresa());
 
 
 
         // Guardando Actualizaciones
-        empleadoServicio.updateEmpleado(emple);
+        empleadoServicio.saveOrUpdateEmpleado(empleado);
 
         //Retornando mensaje "Actualizado"
         return ResponseEntity.ok("Actualizado");
@@ -57,15 +57,15 @@ public class ControladorUsuarios {
 
 
     @DeleteMapping("{id}")
-    public void deleteUsuario(@PathVariable(value = "id") Long id) {
+    public void deleteUsuario(@PathVariable(value = "id") int id) {
         empleadoServicio.deleteEmpleado(id);
 
     }
-
+/*
     @GetMapping("/ent/{id}")
-    public List<Empleado> getUsers(@PathVariable(value = "id") Long id){
+    public List<Empleado> getUsers(@PathVariable(value = "id") int id){
         return empleadoServicio.findUserByEnterpriseId(id);
     }
-
+*/
 
 }
